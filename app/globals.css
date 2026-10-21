@@ -8,8 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-satoshi);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +21,93 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+   font-family: var(--font-satoshi), system-ui, sans-serif;
+}
+/*
+  Navbar surface states. Driven by data attributes set in Navbar.tsx:
+    data-state = "top" | "scrolled" | "open"
+    data-tone  = "dark" | "light"   (tone of the hero behind the navbar)
+  Uses --background / --foreground from globals.css, so light and dark themes work.
+*/
+
+.navbar {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --nav-max: 1280px;
+  --nav-fg: #fff;
+  --nav-bg: transparent;
+  --nav-border: transparent;
+  --nav-shadow: 0 0 0 0 transparent;
+  --nav-blur: blur(0px) saturate(1);
+  --cta-bg: #fff;
+  --cta-fg: #0a0a0a;
+
+  max-width: var(--nav-max);
+  color: var(--nav-fg);
+  background-color: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  box-shadow: var(--nav-shadow);
+  -webkit-backdrop-filter: var(--nav-blur);
+  backdrop-filter: var(--nav-blur);
+  transition:
+    max-width 0.8s var(--ease),
+    color 0.45s ease,
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    -webkit-backdrop-filter 0.5s ease,
+    backdrop-filter 0.5s ease;
+}
+
+/* Transparent, following the page theme (default) */
+.navbar[data-state="top"][data-tone="auto"] {
+  --nav-fg: var(--foreground);
+  --cta-bg: var(--foreground);
+  --cta-fg: var(--background);
+}
+
+/* Transparent, sitting on top of the hero */
+.navbar[data-state="top"][data-tone="dark"] {
+  --nav-fg: #fff;
+  --cta-bg: #fff;
+  --cta-fg: #0a0a0a;
+}
+
+.navbar[data-state="top"][data-tone="light"] {
+  --nav-fg: #0a0a0a;
+  --cta-bg: #0a0a0a;
+  --cta-fg: #fff;
+}
+
+/* Scrolled: condenses into a floating glass pill */
+.navbar[data-state="scrolled"] {
+  --nav-max: 980px;
+  --nav-fg: var(--foreground);
+  --nav-bg: color-mix(in srgb, var(--background) 66%, transparent);
+  --nav-border: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --nav-shadow: 0 12px 40px -16px rgb(0 0 0 / 0.28);
+  --nav-blur: blur(18px) saturate(1.6);
+  --cta-bg: var(--foreground);
+  --cta-fg: var(--background);
+}
+
+/* Mobile menu open: the bar disappears, the logo and toggle sit on the overlay */
+.navbar[data-state="open"] {
+  --nav-fg: var(--background);
+}
+
+.navbar-cta {
+  background-color: var(--cta-bg);
+  color: var(--cta-fg);
+  transition:
+    background-color 0.5s ease,
+    color 0.45s ease,
+    scale 0.3s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar-cta {
+    transition-duration: 0.01ms;
+  }
 }
