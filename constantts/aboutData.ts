@@ -42,7 +42,6 @@ export const GRID_ROWS = 9;
   Swap each `src` for your own work in /public/images/about/ (for example
   "/images/about/01.jpg") before launch.
 */
-const DEMO = "https://assets.codepen.io/16327";
 
 export const ABOUT_TILES: AboutTile[] = [
   // Column 1

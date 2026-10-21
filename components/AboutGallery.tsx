@@ -235,12 +235,12 @@ export default function AboutGallery() {
       >
         <div
           aria-hidden
-          className="about-scrim absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent"
+          className="about-scrim absolute inset-0 bg-linear-to-t from-olive-950/80 via-olive-900/30 to-transparent"
         />
 
         <h2
           id="about-heading"
-          className="relative text-[clamp(2.75rem,8vw,7.5rem)] font-medium leading-[0.98] tracking-[-0.045em] text-white"
+          className="relative text-[clamp(2.75rem,8vw,7.5rem)] font-medium leading-[0.98] tracking-[-0.045em] text-amber-50"
         >
           {ABOUT_STATEMENT.lines.map((line) => (
             <span key={line} className="block overflow-hidden pb-[0.08em]">

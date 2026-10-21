@@ -3,10 +3,9 @@ import Link from "next/link";
 
 export default function AboutContent() {
   return (
-    <div className="relative bg-background px-6 py-24 md:px-14 md:py-40">
+    <div className="relative bg-olive-950 px-6 py-24 md:px-14 md:py-40">
       <div className="mx-auto grid max-w-7xl gap-16 md:grid-cols-12 md:gap-8">
-        {/* self-start lets the heading keep its own height, which sticky needs inside a grid */}
-        <h3 className="self-start text-[clamp(2.25rem,4.5vw,4rem)] font-medium leading-[1.05] tracking-[-0.035em] md:sticky md:top-32 md:col-span-5">
+        <h3 className="text-[clamp(2.25rem,4.5vw,4rem)] font-medium leading-[1.05] tracking-[-0.035em] md:sticky md:top-32 md:self-start md:col-span-5 text-amber-50">
           {ABOUT_STORY.heading}
         </h3>
 
