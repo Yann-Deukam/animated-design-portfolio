@@ -8,7 +8,7 @@ import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { useGSAP } from "@gsap/react";
 import { ABOUT_STORY } from "@/constantts/aboutData";
 import { CURVE_DOWN, CURVE_FLAT, EMAIL, NAV, SOCIALS } from "@/constantts/FooterData";
-import Logo from "./Logo";
+import Button from "./Button";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, MorphSVGPlugin);
 
@@ -89,6 +89,7 @@ export default function Footer() {
             gradientUnits="userSpaceOnUse"
           >
             <stop offset="0.2" stopColor="#fffbeb" />
+            {/* <stop offset="0.8" stopColor="#fde68a" /> */}
           </linearGradient>
         </defs>
         <path id="footer-path" fill="url(#footer-grad)" d={CURVE_DOWN} />
@@ -104,13 +105,33 @@ export default function Footer() {
       {/* Content */}
       <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-32 md:px-14 md:pt-52">
         {/* CTA */}
+        <div className="footer-reveal">
+          <p className="mb-4 text-[13px] font-medium uppercase tracking-[0.18em] opacity-60">
+            Have a project in mind?
+          </p>
+          <Button
+            href="/contact"
+            variant="plain"
+            className="gap-4 text-[clamp(2.5rem,7vw,6.5rem)] font-medium leading-none tracking-[-0.04em]"
+            icon="↗"
+            iconClassName="inline-block transition-transform duration-500 group-hover/roll:translate-x-2 group-hover/roll:-translate-y-2"
+          >
+            <span className="underline decoration-transparent decoration-2 underline-offset-8 transition-[text-decoration-color] duration-300 group-hover/roll:decoration-current">
+              Let&apos;s work together
+            </span>
+          </Button>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="mt-6 block w-fit text-lg font-medium opacity-80 transition-opacity hover:opacity-100"
+          >
+            {EMAIL}
+          </a>
+        </div>
 
         {/* Link columns */}
-        <div className="mt-16 grid grid-cols-2 gap-10 pt-4 md:mt-10 md:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-10 border-t border-black/15 pt-10 md:mt-24 md:grid-cols-4">
           <div className="footer-reveal col-span-2 max-w-xs md:col-span-1">
-            <div className="text-xl font-semibold tracking-[-0.02em]">
-              <Logo/>
-            </div>
+            <p className="text-xl font-semibold tracking-[-0.02em]">G-ni Studio</p>
             <p className="mt-3 text-[15px] leading-relaxed opacity-70">
               Identities, packaging and posters, with the websites that carry them.
             </p>
@@ -171,15 +192,15 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="footer-reveal mt-16 flex flex-col items-start justify-between gap-4 border-t border-black/15 pt-6 text-[13px] font-medium sm:flex-row sm:items-center">
           <p className="opacity-65">
-            © {new Date().getFullYear()} G-ni Studio. All rights reserved.
+            © 2026 G-ni Studio. All rights reserved.
           </p>
-          <button
-            type="button"
+          <Button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="rounded-full border border-black/25 px-4 py-2 transition-colors duration-300 hover:bg-black hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            variant="outline"
+            icon="↑"
           >
-            Back to top ↑
-          </button>
+            Back to top
+          </Button>
         </div>
       </div>
     </footer>

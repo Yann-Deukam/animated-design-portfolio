@@ -1,6 +1,7 @@
 "use client"
 
 import { ProjectCard } from "@/components/ProjectCard"
+import ProjectHeading from "@/components/ProjectHeading"
 import { projects } from "@/constantts/projectData"
 import { useEffect, useRef } from "react"
 
@@ -35,17 +36,14 @@ export default function ProjectsSection() {
         {/* Header */}
         <div className="flex items-end justify-between mb-14">
           <div>
-            <div className="section-label mb-4">
-              <span className="text-portfolio-brown text-[12px] tracking-[0.18em] uppercase font-medium">
-                Selected Work
-              </span>
-            </div>
-            <h2
+            <ProjectHeading
+              as="h2"
+              eyebrow="Selected Work"
               id="work-heading"
-              className="text-[38px] md:text-[52px] text-portfolio-cream tracking-[-2px] leading-none"
+              className="text-[38px] tracking-[-2px] leading-none md:text-[52px]"
             >
               Projects
-            </h2>
+            </ProjectHeading>
           </div>
           <span className="text-portfolio-brown text-[13px] pb-2">
             {projects.length} selected

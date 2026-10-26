@@ -1,14 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Logo from "./Logo";
 import NavLinks from "./NavLinks";
 import MenuToggle from "./MenuToggle";
 import MobileMenu from "./MobileMenu";
-import RollingText from "./RollingText";
+import Button from "./Button";
 import { useNavbarScroll } from "@/utils/useNavbarScroll";
 import { NAV_CTA } from "@/constantts/navConfig";
 
@@ -95,12 +94,12 @@ export default function Navbar({ heroTone = "auto" }: NavbarProps) {
           <NavLinks className="hidden md:flex" />
 
           <div className="flex items-center justify-self-end">
-            <Link
+            <Button
               href={NAV_CTA.href}
-              className="navbar-cta group/roll hidden items-center rounded-full px-5 py-2.5 text-[15px] font-medium tracking-[-0.01em] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current active:scale-95 md:inline-flex"
+              variant="navbar"
             >
-              <RollingText>{NAV_CTA.label}</RollingText>
-            </Link>
+              {NAV_CTA.label}
+            </Button>
 
             <MenuToggle open={menuOpen} onToggle={toggleMenu} controls={menuId} />
           </div>

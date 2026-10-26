@@ -13,7 +13,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0c0c09;
     --foreground: #ededed;
   }
 }
@@ -97,12 +97,11 @@ body {
 }
 
 .navbar-cta {
-  background-color: var(--cta-bg);
   color: var(--cta-fg);
-  transition:
+  /* transition:
     background-color 0.5s ease,
     color 0.45s ease,
-    scale 0.3s var(--ease);
+    scale 0.3s var(--ease); */
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -2,7 +2,6 @@
 
 import { useRef, type CSSProperties } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
@@ -15,6 +14,7 @@ import {
   GRID_ROWS,
   TILE_GAP,
 } from "@/constantts/aboutData"
+import Button from "./Button";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, Flip, ExpoScaleEase);
 
@@ -253,12 +253,13 @@ export default function AboutGallery() {
           <p className="about-fade text-lg leading-relaxed text-white/80">
             {ABOUT_STATEMENT.support}
           </p>
-          <Link
+          <Button
             href={ABOUT_STATEMENT.cta.href}
-            className="about-fade pointer-events-auto inline-flex items-center rounded-full bg-white px-6 py-3 text-[15px] font-medium tracking-[-0.01em] text-neutral-950 transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-95"
+            variant="amber"
+            className="about-fade pointer-events-auto"
           >
             {ABOUT_STATEMENT.cta.label}
-          </Link>
+          </Button>
         </div>
       </div>
     </div>

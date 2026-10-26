@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Project } from "@/constantts/projectData";
 import Image from "next/image";
+import Button from "./Button";
+import ProjectHeading from "./ProjectHeading";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -63,17 +65,22 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           </span>
         </div>
 
-        {/* Bottom: title + link. Visible on mobile, revealed on hover on desktop */}
-        <div className="transition-all duration-500 ease-out md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
-          <h3 className="mb-2 text-[20px] font-semibold leading-tight tracking-[-0.5px] text-portfolio-cream md:text-[24px]">
+        {/* Bottom: title + button. Visible on mobile, revealed on hover or focus on desktop */}
+        <div className="transition-all duration-500 ease-out md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-within:translate-y-0 md:group-focus-within:opacity-100">
+          <ProjectHeading
+            as="h3"
+            className="mb-2 text-[20px] font-semibold leading-tight tracking-[-0.5px] md:text-[24px]"
+          >
             {project.title}
-          </h3>
-          <div className="flex items-center gap-2 text-[13px] font-medium text-portfolio-brown">
-            <span>View Project</span>
-            <span className="inline-block transition-transform duration-300 md:group-hover:translate-x-1">
-              →
-            </span>
-          </div>
+          </ProjectHeading>
+          <Button
+            aria-label={`View ${project.title}`}
+            icon="→"
+            iconClassName="transition-transform duration-300 group-hover/roll:translate-x-1 group-focus-visible/roll:translate-x-1"
+            variant="outline"
+          >
+            View Project
+          </Button>
         </div>
       </div>
     </div>

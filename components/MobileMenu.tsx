@@ -79,7 +79,7 @@ export default function MobileMenu({ id, open, onNavigate }: MobileMenuProps) {
       id={id}
       role="region"
       aria-label="Menu"
-      className="invisible fixed inset-0 z-40 flex flex-col bg-foreground text-background md:hidden"
+      className="invisible fixed inset-0 z-40 flex flex-col bg-amber-50 text-background md:hidden"
     >
       <div className="flex flex-1 flex-col justify-between px-6 pb-8 pt-28">
         <nav aria-label="Mobile">
@@ -117,13 +117,13 @@ export default function MobileMenu({ id, open, onNavigate }: MobileMenuProps) {
           </Link>
 
           <div className="menu-fade flex flex-wrap items-end justify-between gap-x-6 gap-y-3 text-[15px]">
-            <a
+            {/* <a
               href={`mailto:${CONTACT.email}`}
               className="opacity-70 transition-opacity hover:opacity-100"
             >
               {CONTACT.email}
-            </a>
-            <ul className="flex gap-5">
+            </a> */}
+            <ul className="flex gap-20 mt-8">
               {CONTACT.socials.map((social) => (
                 <li key={social.label}>
                   <a

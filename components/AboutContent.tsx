@@ -1,5 +1,5 @@
 import { ABOUT_STORY } from "@/constantts/aboutData";
-import Link from "next/link";
+import Button from "./Button";
 
 export default function AboutContent() {
   return (
@@ -20,7 +20,7 @@ export default function AboutContent() {
             {ABOUT_STORY.capabilities.map((item) => (
               <li
                 key={item.title}
-                className="flex flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+                className="flex flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 text-foreground"
               >
                 <span className="text-xl font-medium tracking-[-0.02em]">
                   {item.title}
@@ -32,12 +32,12 @@ export default function AboutContent() {
             ))}
           </ul>
 
-          <Link
+          <Button
             href={ABOUT_STORY.cta.href}
-            className="mt-12 inline-flex items-center rounded-full bg-foreground px-6 py-3 text-[15px] font-medium tracking-[-0.01em] text-background transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground active:scale-95"
+            className="mt-12"
           >
             {ABOUT_STORY.cta.label}
-          </Link>
+          </Button>
         </div>
       </div>
     </div>
