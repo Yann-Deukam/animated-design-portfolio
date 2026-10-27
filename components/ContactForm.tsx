@@ -200,7 +200,7 @@ export default function ContactForm() {
           className="group relative mt-4 inline-flex w-fit items-center gap-3 overflow-hidden rounded-full bg-amber-50 px-9 py-4 text-sm font-medium text-olive-950 transition-opacity disabled:opacity-70"
         >
           {/* Light sweep on hover */}
-          <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/70 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+          <span className="pointer-events-none absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/70 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           <span className="relative">
             {status === "sending" ? "Sending" : "Send message"}
           </span>
