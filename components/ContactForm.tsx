@@ -82,7 +82,7 @@ function Field({
       {/* Accent line that draws in on focus */}
       <span
         ref={lineRef}
-        className="pointer-events-none absolute bottom-0 left-0 h-px w-full origin-center scale-x-0 bg-amber-50"
+        className="pointer-events-none absolute bottom-0 left-0 h-px w-full origin-center scale-x-0 bg-amber-100"
       />
     </label>
   );
@@ -95,20 +95,6 @@ export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const successRef = useRef<HTMLParagraphElement>(null);
-
-  // Entrance: fields rise in with a stagger, once.
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".contact-field", {
-        y: 32,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.12,
-        ease: "power3.out",
-      });
-    }, formRef);
-    return () => ctx.revert();
-  }, []);
 
   // Magnetic send button: it leans slightly toward the cursor.
   useEffect(() => {
@@ -214,7 +200,7 @@ export default function ContactForm() {
           className="group relative mt-4 inline-flex w-fit items-center gap-3 overflow-hidden rounded-full bg-amber-50 px-9 py-4 text-sm font-medium text-olive-950 transition-opacity disabled:opacity-70"
         >
           {/* Light sweep on hover */}
-          <span className="pointer-events-none absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/70 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+          <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/70 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           <span className="relative">
             {status === "sending" ? "Sending" : "Send message"}
           </span>

@@ -15,11 +15,9 @@ gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
   return (
     <main>
-      {/* <SmoothScroll /> */}
           <Hero/>
           <About/>
           <Projects/>
-          <Services/>
           <Contact/>
     </main>
   )
