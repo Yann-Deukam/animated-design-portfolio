@@ -28,7 +28,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="work"
-      className="py-28 md:py-40 px-8 bg-olive-950"
+      className="scroll-mt-24 bg-olive-950 px-8 py-28 md:py-40"
       ref={sectionRef}
       aria-labelledby="work-heading"
     >

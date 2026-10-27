@@ -115,7 +115,7 @@ export const ABOUT_STATEMENT = {
   lines: ["One studio", "for the brand", "and the build."],
   support:
     "G-ni Studio designs identities, packaging and posters, then builds the websites that carry them.",
-  cta: { label: "See the work", href: "/work" },
+  cta: { label: "See the work", href: "/#work" },
 } as const;
 
 export const ABOUT_STORY = {
@@ -131,5 +131,5 @@ export const ABOUT_STORY = {
     { title: "Posters", detail: "Campaign and event visuals" },
     { title: "Frontend", detail: "Next.js sites with considered motion" },
   ],
-  cta: { label: "Start a project", href: "/contact" },
+  cta: { label: "Start a project", href: "/#contact" },
 } as const;

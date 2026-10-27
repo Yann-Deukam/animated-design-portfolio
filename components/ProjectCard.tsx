@@ -74,6 +74,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             {project.title}
           </ProjectHeading>
           <Button
+            href={`/projects/${project.slug}`}
             aria-label={`View ${project.title}`}
             icon="→"
             iconClassName="transition-transform duration-300 group-hover/roll:translate-x-1 group-focus-visible/roll:translate-x-1"

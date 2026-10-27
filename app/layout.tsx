@@ -4,6 +4,7 @@ import "./globals.css";
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HashScroll from "@/components/HashScroll";
 
 const satoshi = localFont({
   src: [
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${satoshi.variable}  h-full antialiased`}
     >
         <body className="min-h-full flex flex-col">
+          <HashScroll />
           <Navbar heroTone="auto"/>
           {children}
       <Footer/>

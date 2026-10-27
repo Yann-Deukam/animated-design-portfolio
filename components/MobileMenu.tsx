@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useCurrentHash } from "@/utils/useCurrentHash";
 import { CONTACT, isActive, NAV_CTA, NAV_LINKS } from "@/constantts/navConfig";
+import Button from "./Button";
+import SectionLink from "./SectionLink";
 
 gsap.registerPlugin(useGSAP);
 
@@ -22,6 +24,7 @@ export default function MobileMenu({ id, open, onNavigate }: MobileMenuProps) {
   const root = useRef<HTMLDivElement>(null);
   const timeline = useRef<gsap.core.Timeline | null>(null);
   const pathname = usePathname();
+  const hash = useCurrentHash();
 
   // Build the timeline once.
   useGSAP(
@@ -85,11 +88,11 @@ export default function MobileMenu({ id, open, onNavigate }: MobileMenuProps) {
         <nav aria-label="Mobile">
           <ul className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => {
-              const active = isActive(pathname, link.href);
+              const active = isActive(pathname, link.href, hash);
 
               return (
                 <li key={link.href} className="overflow-hidden pb-[0.1em]">
-                  <Link
+                  <SectionLink
                     href={link.href}
                     onClick={onNavigate}
                     aria-current={active ? "page" : undefined}
@@ -100,7 +103,7 @@ export default function MobileMenu({ id, open, onNavigate }: MobileMenuProps) {
                     >
                       {link.label}
                     </span>
-                  </Link>
+                  </SectionLink>
                 </li>
               );
             })}
@@ -108,13 +111,14 @@ export default function MobileMenu({ id, open, onNavigate }: MobileMenuProps) {
         </nav>
 
         <div className="flex flex-col gap-6">
-          <Link
+          <Button
             href={NAV_CTA.href}
             onClick={onNavigate}
-            className="menu-fade flex h-14 items-center justify-center rounded-full bg-background text-lg font-medium tracking-[-0.01em] text-foreground transition-transform duration-300 active:scale-[0.98]"
+            variant="dark"
+            className="menu-fade flex h-14 w-full text-lg"
           >
             {NAV_CTA.label}
-          </Link>
+          </Button>
 
           <div className="menu-fade flex flex-wrap items-end justify-between gap-x-6 gap-y-3 text-[15px]">
             {/* <a

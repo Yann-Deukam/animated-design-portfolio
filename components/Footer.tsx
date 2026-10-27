@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
@@ -9,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { ABOUT_STORY } from "@/constantts/aboutData";
 import { CURVE_DOWN, CURVE_FLAT, EMAIL, NAV, SOCIALS } from "@/constantts/FooterData";
 import Button from "./Button";
+import SectionLink from "./SectionLink";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, MorphSVGPlugin);
 
@@ -110,7 +110,7 @@ export default function Footer() {
             Have a project in mind?
           </p>
           <Button
-            href="/contact"
+            href="/#contact"
             variant="plain"
             className="gap-4 text-[clamp(2.5rem,7vw,6.5rem)] font-medium leading-none tracking-[-0.04em]"
             icon="↗"
@@ -144,12 +144,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {NAV.map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <SectionLink
                     href={item.href}
                     className="text-[15px] font-medium opacity-80 transition-opacity hover:opacity-100"
                   >
                     {item.label}
-                  </Link>
+                  </SectionLink>
                 </li>
               ))}
             </ul>

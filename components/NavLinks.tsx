@@ -1,21 +1,23 @@
 "use client";
 
 import { isActive, NAV_LINKS } from "@/constantts/navConfig";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useCurrentHash } from "@/utils/useCurrentHash";
+import SectionLink from "./SectionLink";
 import RollingText from "./RollingText";
 
 export default function NavLinks({ className = "" }: { className?: string }) {
   const pathname = usePathname();
+  const hash = useCurrentHash();
 
   return (
     <ul className={`items-center gap-1 ${className}`}>
       {NAV_LINKS.map((link) => {
-        const active = isActive(pathname, link.href);
+        const active = isActive(pathname, link.href, hash);
 
         return (
           <li key={link.href}>
-            <Link
+            <SectionLink
               href={link.href}
               aria-current={active ? "page" : undefined}
               className={`group/roll relative block rounded-full px-4 py-2 text-[15px] font-medium tracking-[-0.01em] transition-opacity duration-300 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current ${
@@ -29,7 +31,7 @@ export default function NavLinks({ className = "" }: { className?: string }) {
                   active ? "scale-100" : "scale-0"
                 }`}
               />
-            </Link>
+            </SectionLink>
           </li>
         );
       })}

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 type ProjectHeadingProps = {
-  as: "h2" | "h3";
+  as: "h1" | "h2" | "h3";
   children: ReactNode;
   className?: string;
   eyebrow?: string;

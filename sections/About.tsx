@@ -4,10 +4,10 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className='text-neutral-900'>
+    <section id="about" aria-labelledby="about-heading" className="scroll-mt-24 text-neutral-900">
       <AboutGallery />
       <AboutContent />
-    </div>
+    </section>
   )
 }
 

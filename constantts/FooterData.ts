@@ -12,7 +12,7 @@ export const SOCIALS = [
   { label: "LinkedIn", href: "https://linkedin.com/" },
 ];
 export const NAV = [
-  { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
